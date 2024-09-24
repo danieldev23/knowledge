@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Methods List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body class="bg-gray-100">
+  <div class="container mx-auto px-4">
+      <h1 class="text-3xl font-semibold text-gray-800 my-6 text-center">JavaScript Array Methods 🚀</h1>
+
+      <div class="overflow-x-auto">
+          <table class="min-w-full bg-white border border-gray-300">
+              <thead>
+                  <tr class="bg-[#64A5FF] text-white">
+                      <th class="py-3 px-4 uppercase font-semibold text-sm">Method</th>
+                      <th class="py-3 px-4 uppercase font-semibold text-sm">Description</th>
+                      <th class="py-3 px-4 uppercase font-semibold text-sm">Example</th>
+                  </tr>
+              </thead>
+              <tbody class="text-gray-700">
+                  <!-- Array.prototype.push() -->
+                  <tr class="hover:bg-gray-100 border-b border-gray-200">
+                      <td class="py-3 px-4 font-medium">push()</td>
+                      <td class="py-3 px-4">Adds one or more elements to the end of an array and returns the new length.</td>
+                      <td class="py-3 px-4">
+                          <code>let arr = [1, 2];<br>arr.push(3); // [1, 2, 3]</code>
+                      </td>
+                  </tr>
+                  
+                  <!-- Array.prototype.pop() -->
+                  <tr class="hover:bg-gray-100 border-b border-gray-200">
+                      <td class="py-3 px-4 font-medium">pop()</td>
+                      <td class="py-3 px-4">Removes the last element from an array and returns that element.</td>
+                      <td class="py-3 px-4">
+                          <code>let arr = [1, 2, 3];<br>arr.pop(); // [1, 2]</code>
+                      </td>
+                  </tr>
+                  
+                  <!-- Array.prototype.shift() -->
+                  <tr class="hover:bg-gray-100 border-b border-gray-200">
+                      <td class="py-3 px-4 font-medium">shift()</td>
+                      <td class="py-3 px-4">Removes the first element from an array and returns that element.</td>
+                      <td class="py-3 px-4">
+                          <code>let arr = [1, 2, 3];<br>arr.shift(); // [2, 3]</code>
+                      </td>
+                  </tr>
+
+                  <!-- Array.prototype.unshift() -->
+                  <tr class="hover:bg-gray-100 border-b border-gray-200">
+                      <td class="py-3 px-4 font-medium">unshift()</td>
+                      <td class="py-3 px-4">Adds one or more elements to the beginning of an array and returns the new length.</td>
+                      <td class="py-3 px-4">
+                          <code>let arr = [2, 3];<br>arr.unshift(1); // [1, 2, 3]</code>
+                      </td>
+                  </tr>
+
+                  <!-- Array.prototype.filter() -->
+                  <tr class="hover:bg-gray-100 border-b border-gray-200">
+                      <td class="py-3 px-4 font-medium">filter()</td>
+                      <td class="py-3 px-4">Creates a new array with all elements that pass the test provided by a function.</td>
+                      <td class="py-3 px-4">
+                          <code>let arr = [1, 2, 3];<br>arr.filter(n => n > 1); // [2, 3]</code>
+                      </td>
+                  </tr>
+
+                  <!-- Array.prototype.map() -->
+                  <tr class="hover:bg-gray-100 border-b border-gray-200">
+                      <td class="py-3 px-4 font-medium">map()</td>
+                      <td class="py-3 px-4">Creates a new array with the results of calling a function on every element.</td>
+                      <td class="py-3 px-4">
+                          <code>let arr = [1, 2, 3];<br>arr.map(n => n * 2); // [2, 4, 6]</code>
+                      </td>
+                  </tr>
+
+                  <!-- Array.prototype.reduce() -->
+                  <tr class="hover:bg-gray-100 border-b border-gray-200">
+                      <td class="py-3 px-4 font-medium">reduce()</td>
+                      <td class="py-3 px-4">Executes a reducer function on each element, resulting in a single output value.</td>
+                      <td class="py-3 px-4">
+                          <code>let arr = [1, 2, 3];<br>arr.reduce((sum, n) => sum + n, 0); // 6</code>
+                      </td>
+                  </tr>
+
+                  <!-- Array.prototype.find() -->
+                  <tr class="hover:bg-gray-100 border-b border-gray-200">
+                      <td class="py-3 px-4 font-medium">find()</td>
+                      <td class="py-3 px-4">Returns the value of the first element that satisfies the provided testing function.</td>
+                      <td class="py-3 px-4">
+                          <code>let arr = [1, 2, 3];<br>arr.find(n => n > 1); // 2</code>
+                      </td>
+                  </tr>
+
+                  <!-- Array.prototype.sort() -->
+                  <tr class="hover:bg-gray-100 border-b border-gray-200">
+                      <td class="py-3 px-4 font-medium">sort()</td>
+                      <td class="py-3 px-4">Sorts the elements of an array in place and returns the sorted array.</td>
+                      <td class="py-3 px-4">
+                          <code>let arr = [3, 1, 2];<br>arr.sort(); // [1, 2, 3]</code>
+                      </td>
+                  </tr>
+
+                  <!-- Array.prototype.every() -->
+                  <tr class="hover:bg-gray-100 border-b border-gray-200">
+                      <td class="py-3 px-4 font-medium">every()</td>
+                      <td class="py-3 px-4">Tests whether all elements in the array pass the test implemented by a function.</td>
+                      <td class="py-3 px-4">
+                          <code>let arr = [1, 2, 3];<br>arr.every(n => n > 0); // true</code>
+                      </td>
+                  </tr>
+
+                  <!-- Array.prototype.some() -->
+                  <tr class="hover:bg-gray-100 border-b border-gray-200">
+                      <td class="py-3 px-4 font-medium">some()</td>
+                      <td class="py-3 px-4">Tests whether at least one element in the array passes the test implemented by a function.</td>
+                      <td class="py-3 px-4">
+                          <code>let arr = [1, 2, 3];<br>arr.some(n => n > 2); // true</code>
+                      </td>
+                  </tr>
+                  <tr class="hover:bg-gray-100 border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">forEach()</td>
+                    <td class="py-3 px-4">Executes a provided function once for each array element.</td>
+                    <td class="py-3 px-4">
+                        <code>let arr = [1, 2, 3];<br>arr.forEach(n => console.log(n)); // logs 1, 2, 3</code>
+                    </td>
+                </tr>
+
+                <!-- Array.prototype.concat() -->
+                <tr class="hover:bg-gray-100 border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">concat()</td>
+                    <td class="py-3 px-4">Merges two or more arrays and returns a new array.</td>
+                    <td class="py-3 px-4">
+                        <code>let arr1 = [1, 2];<br>let arr2 = [3, 4];<br>arr1.concat(arr2); // [1, 2, 3, 4]</code>
+                    </td>
+                </tr>
+
+                <!-- Array.prototype.includes() -->
+                <tr class="hover:bg-gray-100 border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">includes()</td>
+                    <td class="py-3 px-4">Determines whether an array contains a certain element, returning true or false.</td>
+                    <td class="py-3 px-4">
+                        <code>let arr = [1, 2, 3];<br>arr.includes(2); // true</code>
+                    </td>
+                </tr>
+
+                <!-- Array.prototype.indexOf() -->
+                <tr class="hover:bg-gray-100 border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">indexOf()</td>
+                    <td class="py-3 px-4">Returns the first index at which a given element can be found, or -1 if it is not present.</td>
+                    <td class="py-3 px-4">
+                        <code>let arr = [1, 2, 3];<br>arr.indexOf(2); // 1</code>
+                    </td>
+                </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <footer class="text-center my-5 text-bold text-md">Make with ❤️ by <a class="text-green-500" href="https://facebook.com/huycoder2k5">Đặng Quốc Huy</a> aka <a class="text-blue-700" href="https://facebook.com/huycoder2k5">Danieldev 👨🏻‍💻</a></footer>
+</body>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          clifford: '#da373d',
+        }
+      }
+    }
+  }
+</script>
+</html>
+
+</html>
