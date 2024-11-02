@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CI/CD - Tích Hợp Liên Tục và Triển Khai Liên Tục</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-100">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-green-600 to-green-800 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4">
+            <h1 class="text-4xl font-bold mb-4 text-center">🚀 CI/CD - Tích Hợp Liên Tục và Triển Khai Liên Tục</h1>
+            <p class="text-xl text-center text-green-100">Giải pháp tối ưu cho phát triển phần mềm hiện đại</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="max-w-6xl mx-auto px-4 py-8">
+        <!-- Introduction -->
+        <section class="mb-12 bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-bold text-green-700 mb-6">1. Giới Thiệu Về CI/CD</h2>
+            <p class="text-green-600 mb-4">CI/CD là một tập hợp các phương pháp trong phát triển phần mềm nhằm tự động hóa các quy trình phát triển, kiểm tra và triển khai ứng dụng.</p>
+            <p class="text-green-600">Tích hợp liên tục (CI) là quy trình tự động hóa việc tích hợp mã nguồn từ nhiều lập trình viên vào một nhánh chính, trong khi triển khai liên tục (CD) đảm bảo rằng mã mới có thể được triển khai vào môi trường sản xuất một cách tự động và an toàn.</p>
+        </section>
+
+        <!-- Benefits -->
+        <section class="mb-12 bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-bold text-green-700 mb-6">2. Lợi Ích Của CI/CD</h2>
+            <ul class="list-disc pl-5 text-green-600 space-y-2">
+                <li>✅ Tăng cường chất lượng mã nguồn.</li>
+                <li>✅ Giảm thời gian phát hành phần mềm.</li>
+                <li>✅ Cải thiện khả năng phản hồi của đội ngũ phát triển.</li>
+                <li>✅ Giảm thiểu rủi ro trong việc triển khai.</li>
+                <li>✅ Dễ dàng phát hiện và sửa lỗi sớm trong quá trình phát triển.</li>
+            </ul>
+        </section>
+
+        <!-- Tools -->
+        <section class="mb-12 bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-bold text-green-700 mb-6">3. Công Cụ CI/CD Phổ Biến</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-green-50 rounded-lg p-4">
+                    <h4 class="text-green-800 font-semibold mb-2">GitHub Actions</h4>
+                    <p class="text-green-600">Cung cấp quy trình CI/CD hoàn chỉnh tích hợp trực tiếp với GitHub.</p>
+                </div>
+                <div class="bg-green-50 rounded-lg p-4">
+                    <h4 class="text-green-800 font-semibold mb-2">GitLab CI/CD</h4>
+                    <p class="text-green-600">Tích hợp sẵn trong GitLab giúp tự động hóa quy trình phát triển và triển khai.</p>
+                </div>
+                <div class="bg-green-50 rounded-lg p-4">
+                    <h4 class="text-green-800 font-semibold mb-2">Jenkins</h4>
+                    <p class="text-green-600">Nền tảng mã nguồn mở hỗ trợ nhiều plugin để tự động hóa các tác vụ phát triển phần mềm.</p>
+                </div>
+                <div class="bg-green-50 rounded-lg p-4">
+                    <h4 class="text-green-800 font-semibold mb-2">CircleCI</h4>
+                    <p class="text-green-600">Nền tảng CI/CD mạnh mẽ với khả năng mở rộng cao và tích hợp với nhiều dịch vụ khác nhau.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CI/CD Pipeline -->
+        <section class="mb-12 bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-bold text-green-700 mb-6">4. Quy Trình CI/CD</h2>
+            <ol class="list-decimal pl-5 text-green-600 space-y-2">
+                <li>Phát triển mã nguồn và cam kết vào kho lưu trữ.</li>
+                <li>Chạy các bài kiểm tra tự động khi có sự thay đổi trong mã nguồn.</li>
+                <li>Xây dựng image và triển khai vào môi trường thử nghiệm.</li>
+                <li>Chạy các bài kiểm tra tích hợp và kiểm thử người dùng.</li>
+                <li>Triển khai lên môi trường sản xuất nếu tất cả các bài kiểm tra đều thành công.</li>
+            </ol>
+        </section>
+
+        <!-- Deployment with GitHub, GitLab, Jenkins -->
+        <section class="mb-12 bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-bold text-green-700 mb-6">5. Triển Khai CI/CD</h2>
+
+            <div class="bg-green-50 rounded-lg p-4 mb-4">
+                <h3 class="text-green-800 font-semibold mb-3">5.1 Triển Khai với GitHub Actions</h3>
+                <p class="text-green-600 mb-2">Để thiết lập CI/CD với GitHub Actions, bạn có thể tạo một tệp YAML trong thư mục `.github/workflows`. Ví dụ:</p>
+                <pre class="bg-white rounded border border-green-200 p-3 text-green-600">
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Deploy
+        run: echo "Triển khai lên môi trường sản xuất"
+                </pre>
+            </div>
+
+            <div class="bg-green-50 rounded-lg p-4 mb-4">
+                <h3 class="text-green-800 font-semibold mb-3">5.2 Triển Khai với GitLab CI/CD</h3>
+                <p class="text-green-600 mb-2">Để thiết lập CI/CD với GitLab, bạn tạo một tệp `.gitlab-ci.yml` trong thư mục gốc của dự án. Ví dụ:</p>
+                <pre class="bg-white rounded border border-green-200 p-3 text-green-600">
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  script:
+    - echo "Xây dựng ứng dụng"
+
+test:
+  stage: test
+  script:
+    - echo "Chạy kiểm tra"
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Triển khai lên môi trường sản xuất"
+                </pre>
+            </div>
+
+            <div class="bg-green-50 rounded-lg p-4 mb-4">
+                <h3 class="text-green-800 font-semibold mb-3">5.3 Triển Khai với Jenkins</h3>
+                <p class="text-green-600 mb-2">Để thiết lập CI/CD với Jenkins, bạn cần tạo một Job trong Jenkins và sử dụng Pipeline. Ví dụ:</p>
+                <pre class="bg-white rounded border border-green-200 p-3 text-green-600">
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Xây dựng ứng dụng'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Chạy kiểm tra'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Triển khai lên môi trường sản xuất'
+            }
+        }
+    }
+}
+                </pre>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="mb-12 bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-bold text-green-700 mb-6">6. Kết Luận</h2>
+            <p class="text-green-600 mb-4">CI/CD không chỉ giúp cải thiện quy trình phát triển phần mềm mà còn mang lại sự nhanh chóng và độ tin cậy cao hơn trong việc triển khai ứng dụng. Sử dụng CI/CD là một bước tiến quan trọng đối với mọi đội ngũ phát triển phần mềm.</p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="mb-2">🚀 Make with ❤️ by Đặng Quốc Huy</p>
+        </div>
+    </footer>
+</body>
+</html>
