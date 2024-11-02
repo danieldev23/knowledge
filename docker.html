@@ -17,42 +17,47 @@
 
     <!-- Main Content -->
     <div class="max-w-6xl mx-auto px-4 py-8">
+        
+        <!-- Docker Introduction -->
+        <section class="mb-12 bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-bold text-blue-700 mb-6">1. Docker Là Gì?</h2>
+            <p class="text-blue-600 mb-4">Docker là nền tảng mã nguồn mở hỗ trợ triển khai ứng dụng một cách dễ dàng bằng cách đóng gói chúng trong container, đảm bảo ứng dụng chạy đồng nhất trên mọi môi trường.</p>
+            <div class="bg-blue-50 rounded-lg p-4 mb-4">
+                <h3 class="text-lg font-semibold text-blue-800 mb-2">Tại Sao Docker Quan Trọng?</h3>
+                <p>Với Docker, nhà phát triển có thể xây dựng, triển khai và quản lý ứng dụng dễ dàng hơn, cải thiện tính linh động và nhất quán giữa các môi trường.</p>
+            </div>
+        </section>
+
         <!-- Docker Basics -->
         <section class="mb-12 bg-white rounded-lg shadow-lg p-6">
-            <h2 class="text-2xl font-bold text-blue-700 mb-6">1. Kiến Thức Cơ Bản</h2>
+            <h2 class="text-2xl font-bold text-blue-700 mb-6">2. Kiến Thức Cơ Bản</h2>
             
             <div class="bg-blue-50 rounded-lg p-4 mb-4">
-                <h3 class="text-lg font-semibold text-blue-800 mb-2">Docker là gì?</h3>
-                <p class="text-blue-600">Docker là nền tảng để phát triển, vận chuyển và chạy ứng dụng trong container.</p>
+                <h3 class="text-lg font-semibold text-blue-800 mb-2">Thành Phần Chính</h3>
+                <ul class="list-disc pl-5 text-blue-600">
+                    <li>Docker Engine: Phần mềm quản lý container và ảnh</li>
+                    <li>Docker Images: Mẫu ảnh chứa các thành phần cần thiết để chạy ứng dụng</li>
+                    <li>Docker Containers: Đơn vị triển khai chạy độc lập</li>
+                </ul>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-green-50 rounded-lg p-4">
-                    <h4 class="text-green-800 font-semibold mb-2">Ưu điểm</h4>
-                    <ul class="text-green-600 space-y-2">
-                        <li>✅ Nhẹ và nhanh hơn máy ảo</li>
-                        <li>✅ Dễ dàng di chuyển</li>
-                        <li>✅ Tính đồng nhất cao</li>
-                    </ul>
-                </div>
-                <div class="bg-yellow-50 rounded-lg p-4">
-                    <h4 class="text-yellow-800 font-semibold mb-2">Thành phần</h4>
-                    <ul class="text-yellow-600 space-y-2">
-                        <li>📦 Docker Engine</li>
-                        <li>🖼️ Docker Images</li>
-                        <li>🎁 Docker Containers</li>
-                    </ul>
-                </div>
+            <div class="bg-green-50 rounded-lg p-4 mb-4">
+                <h4 class="text-green-800 font-semibold mb-2">Ưu Điểm Của Docker</h4>
+                <ul class="list-disc pl-5 text-green-600">
+                    <li>Nhẹ và nhanh hơn máy ảo</li>
+                    <li>Triển khai dễ dàng</li>
+                    <li>Đảm bảo đồng nhất</li>
+                </ul>
             </div>
         </section>
 
         <!-- Docker Commands -->
         <section class="mb-12 bg-white rounded-lg shadow-lg p-6">
-            <h2 class="text-2xl font-bold text-purple-700 mb-6">2. Lệnh Docker Cơ Bản</h2>
+            <h2 class="text-2xl font-bold text-purple-700 mb-6">3. Các Lệnh Docker Cơ Bản</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="bg-purple-50 rounded-lg p-4">
-                    <h3 class="text-purple-800 font-semibold mb-3">Quản lý Images</h3>
+                    <h3 class="text-purple-800 font-semibold mb-3">Lệnh Quản Lý Ảnh</h3>
                     <div class="bg-white rounded border border-purple-200 p-3">
                         <code class="text-purple-600 block mb-2">docker images</code>
                         <code class="text-purple-600 block mb-2">docker pull image_name:tag</code>
@@ -61,7 +66,7 @@
                 </div>
 
                 <div class="bg-indigo-50 rounded-lg p-4">
-                    <h3 class="text-indigo-800 font-semibold mb-3">Quản lý Containers</h3>
+                    <h3 class="text-indigo-800 font-semibold mb-3">Lệnh Quản Lý Container</h3>
                     <div class="bg-white rounded border border-indigo-200 p-3">
                         <code class="text-indigo-600 block mb-2">docker ps -a</code>
                         <code class="text-indigo-600 block mb-2">docker start container_name</code>
@@ -73,10 +78,10 @@
 
         <!-- Docker Run -->
         <section class="mb-12 bg-white rounded-lg shadow-lg p-6">
-            <h2 class="text-2xl font-bold text-teal-700 mb-6">3. Chạy Container</h2>
+            <h2 class="text-2xl font-bold text-teal-700 mb-6">4. Chạy Container</h2>
             
             <div class="bg-teal-50 rounded-lg p-4 mb-4">
-                <h3 class="text-teal-800 font-semibold mb-3">Cú pháp cơ bản</h3>
+                <h3 class="text-teal-800 font-semibold mb-3">Cú Pháp Docker Run</h3>
                 <div class="bg-white rounded border border-teal-200 p-3">
                     <code class="text-teal-600 block">docker run -it --name "tên_container" -h hostname image_name</code>
                 </div>
@@ -84,16 +89,16 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="bg-cyan-50 rounded-lg p-4">
-                    <h4 class="text-cyan-800 font-semibold mb-2">Options phổ biến</h4>
-                    <ul class="text-cyan-600 space-y-2">
+                    <h4 class="text-cyan-800 font-semibold mb-2">Options Phổ Biến</h4>
+                    <ul class="list-disc pl-5 text-cyan-600">
                         <li>-d: Chạy ở background</li>
                         <li>-p: Map port</li>
                         <li>-v: Mount volume</li>
                     </ul>
                 </div>
                 <div class="bg-emerald-50 rounded-lg p-4">
-                    <h4 class="text-emerald-800 font-semibold mb-2">Tương tác</h4>
-                    <ul class="text-emerald-600 space-y-2">
+                    <h4 class="text-emerald-800 font-semibold mb-2">Lệnh Tương Tác</h4>
+                    <ul class="list-disc pl-5 text-emerald-600">
                         <li>Ctrl + P + Q: Thoát container</li>
                         <li>docker attach: Kết nối lại</li>
                         <li>docker exec: Thực thi lệnh</li>
@@ -105,7 +110,7 @@
         <!-- Advanced Features -->
         <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="bg-white rounded-lg shadow-lg p-6">
-                <h2 class="text-2xl font-bold text-rose-700 mb-6">4. Network</h2>
+                <h2 class="text-2xl font-bold text-rose-700 mb-6">5. Mạng Docker</h2>
                 <div class="bg-rose-50 rounded-lg p-4">
                     <code class="text-rose-600 block mb-2">docker network create network_name</code>
                     <code class="text-rose-600 block mb-2">docker network ls</code>
@@ -114,7 +119,7 @@
             </div>
 
             <div class="bg-white rounded-lg shadow-lg p-6">
-                <h2 class="text-2xl font-bold text-orange-700 mb-6">5. Volume</h2>
+                <h2 class="text-2xl font-bold text-orange-700 mb-6">6. Volume Docker</h2>
                 <div class="bg-orange-50 rounded-lg p-4">
                     <code class="text-orange-600 block mb-2">docker volume create volume_name</code>
                     <code class="text-orange-600 block mb-2">docker volume ls</code>
