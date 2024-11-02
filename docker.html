@@ -3,41 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Docker Guide</title>
+    <title>Comprehensive Docker Guide</title>
     <link href="https://cdn.tailwindcss.com" rel="stylesheet">
 </head>
-<body class="bg-gray-100 text-gray-800">
-    <div class="container mx-auto py-10 px-5">
-        <h1 class="text-4xl font-bold mb-8">Hướng dẫn toàn diện về Docker</h1>
+<body class="bg-gray-50 text-gray-800">
+    <div class="container mx-auto py-12 px-6 max-w-4xl">
+        <h1 class="text-5xl font-bold text-center text-blue-600 mb-12">Hướng dẫn toàn diện về Docker</h1>
 
         <!-- Mục lục -->
-        <section id="toc" class="mb-10">
-            <h2 class="text-2xl font-semibold mb-5">Mục lục</h2>
-            <ul class="list-disc list-inside space-y-1">
-                <li><a href="#1" class="text-blue-600 hover:underline">Giới thiệu về Docker</a></li>
-                <li><a href="#2" class="text-blue-600 hover:underline">Kiến trúc Docker</a></li>
-                <li><a href="#3" class="text-blue-600 hover:underline">Cài đặt Docker</a></li>
-                <li><a href="#4" class="text-blue-600 hover:underline">Docker Images</a></li>
-                <li><a href="#5" class="text-blue-600 hover:underline">Docker Containers</a></li>
-                <li><a href="#6" class="text-blue-600 hover:underline">Docker Networks</a></li>
-                <li><a href="#7" class="text-blue-600 hover:underline">Docker Volumes</a></li>
-                <li><a href="#8" class="text-blue-600 hover:underline">Dockerfile</a></li>
-                <li><a href="#9" class="text-blue-600 hover:underline">Docker Compose</a></li>
-                <li><a href="#10" class="text-blue-600 hover:underline">Docker Registry</a></li>
-                <li><a href="#11" class="text-blue-600 hover:underline">Docker Swarm</a></li>
-                <li><a href="#12" class="text-blue-600 hover:underline">Best Practices</a></li>
-                <li><a href="#13" class="text-blue-600 hover:underline">Troubleshooting</a></li>
+        <section id="toc" class="mb-16">
+            <h2 class="text-3xl font-semibold text-gray-700 mb-6 border-b-2 border-blue-500 pb-2">Mục lục</h2>
+            <ul class="list-decimal list-inside space-y-3 text-lg text-gray-700">
+                <li><a href="#1" class="text-blue-500 hover:underline">Giới thiệu về Docker</a></li>
+                <li><a href="#2" class="text-blue-500 hover:underline">Kiến trúc Docker</a></li>
+                <li><a href="#3" class="text-blue-500 hover:underline">Cài đặt Docker</a></li>
+                <li><a href="#4" class="text-blue-500 hover:underline">Docker Images</a></li>
+                <li><a href="#5" class="text-blue-500 hover:underline">Docker Containers</a></li>
+                <li><a href="#6" class="text-blue-500 hover:underline">Docker Networks</a></li>
+                <li><a href="#7" class="text-blue-500 hover:underline">Docker Volumes</a></li>
+                <li><a href="#8" class="text-blue-500 hover:underline">Dockerfile</a></li>
+                <li><a href="#9" class="text-blue-500 hover:underline">Docker Compose</a></li>
+                <li><a href="#10" class="text-blue-500 hover:underline">Docker Registry</a></li>
+                <li><a href="#11" class="text-blue-500 hover:underline">Docker Swarm</a></li>
+                <li><a href="#12" class="text-blue-500 hover:underline">Best Practices</a></li>
+                <li><a href="#13" class="text-blue-500 hover:underline">Troubleshooting</a></li>
             </ul>
         </section>
 
         <!-- 1. Giới thiệu về Docker -->
-        <section id="1" class="mb-10">
-            <h2 class="text-2xl font-semibold mb-4">1. Giới thiệu về Docker</h2>
-            <h3 class="text-xl font-medium mb-2">1.1 Docker là gì?</h3>
-            <p class="mb-4">Docker là một nền tảng mở để phát triển, vận chuyển và chạy ứng dụng. Docker cho phép tách ứng dụng khỏi cơ sở hạ tầng, giúp phần mềm chạy đồng nhất trên mọi môi trường.</p>
+        <section id="1" class="mb-16">
+            <h2 class="text-3xl font-semibold text-gray-800 mb-4">1. Giới thiệu về Docker</h2>
+            <h3 class="text-2xl font-medium text-gray-700 mb-3">1.1 Docker là gì?</h3>
+            <p class="text-lg text-gray-600 mb-6">Docker là một nền tảng mở để phát triển, vận chuyển và chạy ứng dụng. Docker cho phép tách ứng dụng khỏi cơ sở hạ tầng, giúp phần mềm chạy đồng nhất trên mọi môi trường.</p>
 
-            <h3 class="text-xl font-medium mb-2">1.2 Lợi ích của Docker</h3>
-            <ul class="list-disc list-inside space-y-1">
+            <h3 class="text-2xl font-medium text-gray-700 mb-3">1.2 Lợi ích của Docker</h3>
+            <ul class="list-disc list-inside text-lg text-gray-600 space-y-2">
                 <li>Nhẹ và nhanh hơn máy ảo</li>
                 <li>Tính di động cao</li>
                 <li>Dễ dàng mở rộng</li>
@@ -47,10 +47,10 @@
         </section>
 
         <!-- 2. Kiến trúc Docker -->
-        <section id="2" class="mb-10">
-            <h2 class="text-2xl font-semibold mb-4">2. Kiến trúc Docker</h2>
-            <h3 class="text-xl font-medium mb-2">2.1 Các thành phần chính</h3>
-            <pre class="bg-gray-200 p-4 rounded-lg mb-4">
+        <section id="2" class="mb-16">
+            <h2 class="text-3xl font-semibold text-gray-800 mb-4">2. Kiến trúc Docker</h2>
+            <h3 class="text-2xl font-medium text-gray-700 mb-3">2.1 Các thành phần chính</h3>
+            <pre class="bg-gray-900 text-white text-sm p-6 rounded-lg mb-6">
 - Docker Engine
     ├── Docker Daemon (dockerd)
     ├── REST API
@@ -62,9 +62,9 @@
     ├── Networks
     └── Volumes
             </pre>
-            <h3 class="text-xl font-medium mb-2">2.2 Docker Engine</h3>
-            <p>Docker Engine bao gồm:</p>
-            <ul class="list-disc list-inside space-y-1">
+            <h3 class="text-2xl font-medium text-gray-700 mb-3">2.2 Docker Engine</h3>
+            <p class="text-lg text-gray-600">Docker Engine bao gồm:</p>
+            <ul class="list-disc list-inside text-lg text-gray-600 space-y-2">
                 <li><strong>Docker Daemon:</strong> Quản lý các objects của Docker</li>
                 <li><strong>REST API:</strong> Giao tiếp với Docker Daemon</li>
                 <li><strong>Docker CLI:</strong> Giao diện dòng lệnh của Docker</li>
@@ -72,10 +72,10 @@
         </section>
 
         <!-- 3. Cài đặt Docker -->
-        <section id="3" class="mb-10">
-            <h2 class="text-2xl font-semibold mb-4">3. Cài đặt Docker</h2>
-            <h3 class="text-xl font-medium mb-2">3.1 Cài đặt trên Ubuntu</h3>
-            <pre class="bg-gray-200 p-4 rounded-lg mb-4">
+        <section id="3" class="mb-16">
+            <h2 class="text-3xl font-semibold text-gray-800 mb-4">3. Cài đặt Docker</h2>
+            <h3 class="text-2xl font-medium text-gray-700 mb-3">3.1 Cài đặt trên Ubuntu</h3>
+            <pre class="bg-gray-900 text-white text-sm p-6 rounded-lg mb-6">
 # Cập nhật package index
 sudo apt-get update
 
@@ -92,8 +92,8 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] 
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io
             </pre>
-            <h3 class="text-xl font-medium mb-2">3.2 Kiểm tra cài đặt</h3>
-            <pre class="bg-gray-200 p-4 rounded-lg">
+            <h3 class="text-2xl font-medium text-gray-700 mb-3">3.2 Kiểm tra cài đặt</h3>
+            <pre class="bg-gray-900 text-white text-sm p-6 rounded-lg">
 # Kiểm tra phiên bản
 docker --version
 
@@ -103,10 +103,10 @@ docker run hello-world
         </section>
 
         <!-- 4. Docker Images -->
-        <section id="4" class="mb-10">
-            <h2 class="text-2xl font-semibold mb-4">4. Docker Images</h2>
-            <h3 class="text-xl font-medium mb-2">4.1 Quản lý Images</h3>
-            <pre class="bg-gray-200 p-4 rounded-lg">
+        <section id="4" class="mb-16">
+            <h2 class="text-3xl font-semibold text-gray-800 mb-4">4. Docker Images</h2>
+            <h3 class="text-2xl font-medium text-gray-700 mb-3">4.1 Quản lý Images</h3>
+            <pre class="bg-gray-900 text-white text-sm p-6 rounded-lg mb-6">
 # Liệt kê images
 docker images
 
@@ -126,8 +126,8 @@ docker save -o image.tar image_name
 # Nạp image từ file
 docker load -i image.tar
             </pre>
-            <h3 class="text-xl font-medium mb-2">4.2 Tạo Image</h3>
-            <pre class="bg-gray-200 p-4 rounded-lg">
+            <h3 class="text-2xl font-medium text-gray-700 mb-3">4.2 Tạo Image</h3>
+            <pre class="bg-gray-900 text-white text-sm p-6 rounded-lg">
 # Từ Dockerfile
 docker build -t image_name:tag .
 
