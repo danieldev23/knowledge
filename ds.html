@@ -18,7 +18,7 @@
       </p>
     </section>
 
-    <!-- Mảng (Array) -->
+    <!-- 1. Mảng (Array) -->
     <section class="mb-8">
       <h2 class="text-2xl font-semibold text-blue-500">1. Mảng (Array)</h2>
       <p class="text-lg text-gray-700 mb-2">
@@ -36,7 +36,7 @@ console.log(users.map(user => user.name)); // ['Alice', 'Bob']
       </pre>
     </section>
 
-    <!-- Đối tượng (Object) -->
+    <!-- 2. Đối tượng (Object) -->
     <section class="mb-8">
       <h2 class="text-2xl font-semibold text-blue-500">2. Đối Tượng (Object)</h2>
       <p class="text-lg text-gray-700 mb-2">
@@ -55,7 +55,7 @@ console.log(user.name); // "Alice"
       </pre>
     </section>
 
-    <!-- Hash Table -->
+    <!-- 3. Hash Table -->
     <section class="mb-8">
       <h2 class="text-2xl font-semibold text-blue-500">3. Hash Table (Bảng Băm)</h2>
       <p class="text-lg text-gray-700 mb-2">
@@ -95,7 +95,7 @@ console.log(hashTable.search('user1')); // "Alice"
       </pre>
     </section>
 
-    <!-- Ngăn xếp (Stack) -->
+    <!-- 4. Ngăn xếp (Stack) -->
     <section class="mb-8">
       <h2 class="text-2xl font-semibold text-blue-500">4. Ngăn Xếp (Stack)</h2>
       <p class="text-lg text-gray-700 mb-2">
@@ -126,7 +126,7 @@ console.log(stack.pop()); // "task2"
       </pre>
     </section>
 
-    <!-- Hàng đợi (Queue) -->
+    <!-- 5. Hàng đợi (Queue) -->
     <section class="mb-8">
       <h2 class="text-2xl font-semibold text-blue-500">5. Hàng Đợi (Queue)</h2>
       <p class="text-lg text-gray-700 mb-2">
@@ -157,12 +157,144 @@ console.log(queue.dequeue()); // "task1"
       </pre>
     </section>
 
-    <!-- Kết luận -->
-    <section class="mt-8">
-      <p class="text-lg text-gray-700">
-        Các cấu trúc dữ liệu như <strong>Array</strong>, <strong>Object</strong>, <strong>Hash Table</strong>, <strong>Stack</strong>, và <strong>Queue</strong> rất quan trọng trong việc phát triển ứng dụng với <strong>Node.js</strong> và <strong>Express</strong>. Chúng giúp tổ chức dữ liệu một cách hiệu quả, từ đó cải thiện hiệu suất và khả năng mở rộng của ứng dụng.
+    <!-- 6. Danh sách liên kết (Linked List) -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-blue-500">6. Danh Sách Liên Kết (Linked List)</h2>
+      <p class="text-lg text-gray-700 mb-2">
+        Danh sách liên kết là một cấu trúc dữ liệu trong đó mỗi phần tử chứa dữ liệu và một con trỏ đến phần tử tiếp theo.
       </p>
+      <p class="text-md text-gray-600">
+        <strong>Ứng dụng thực tế trong Node.js:</strong> Linked List có thể dùng để lưu trữ các dữ liệu thay đổi động, chẳng hạn như trong các ứng dụng xử lý dữ liệu theo chuỗi.
+      </p>
+      <pre class="bg-gray-100 p-4 rounded-md mt-4 text-sm">
+class Node {
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+  }
+}
+
+class LinkedList {
+  constructor() {
+    this.head = null;
+  }
+
+  insert(data) {
+    const newNode = new Node(data);
+    newNode.next = this.head;
+    this.head = newNode;
+  }
+}
+
+const list = new LinkedList();
+list.insert('Node 1');
+list.insert('Node 2');
+console.log(list.head); // { data: 'Node 2', next: { data: 'Node 1', next: null } }
+      </pre>
     </section>
+
+    <!-- 7. Cây (Tree) -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-blue-500">7. Cây (Tree)</h2>
+      <p class="text-lg text-gray-700 mb-2">
+        Cây là một cấu trúc dữ liệu có dạng cây phân cấp, nơi mỗi nút có thể có nhiều nút con, rất hữu ích trong các ứng dụng tìm kiếm và phân loại.
+      </p>
+      <p class="text-md text-gray-600">
+        <strong>Ứng dụng thực tế trong Node.js:</strong> Cây thường được sử dụng trong các hệ thống phân cấp như thư mục tệp tin, dữ liệu JSON, hoặc các hệ thống tìm kiếm.
+      </p>
+      <pre class="bg-gray-100 p-4 rounded-md mt-4 text-sm">
+class TreeNode {
+  constructor(data) {
+    this.data = data;
+    this.children = [];
+  }
+
+  addChild(node) {
+    this.children.push(node);
+  }
+}
+
+const root = new TreeNode('root');
+const child1 = new TreeNode('child1');
+const child2 = new TreeNode('child2');
+
+root.addChild(child1);
+root.addChild(child2);
+console.log(root); // Tree with root and two children
+      </pre>
+    </section>
+
+    <!-- 8. Đồ thị (Graph) -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-blue-500">8. Đồ Thị (Graph)</h2>
+      <p class="text-lg text-gray-700 mb-2">
+        Đồ thị là một cấu trúc dữ liệu gồm các đỉnh (vertices) và các cạnh (edges) kết nối chúng. Đồ thị có thể được dùng trong các ứng dụng tìm kiếm và phân tích mạng.
+      </p>
+      <p class="text-md text-gray-600">
+        <strong>Ứng dụng thực tế trong Node.js:</strong> Đồ thị có thể dùng trong các ứng dụng mô phỏng mạng xã hội, bản đồ, hoặc hệ thống tìm kiếm.
+      </p>
+      <pre class="bg-gray-100 p-4 rounded-md mt-4 text-sm">
+class Graph {
+  constructor() {
+    this.vertices = new Map();
+  }
+
+  addVertex(vertex) {
+    this.vertices.set(vertex, []);
+  }
+
+  addEdge(vertex1, vertex2) {
+    this.vertices.get(vertex1).push(vertex2);
+    this.vertices.get(vertex2).push(vertex1);
+  }
+}
+
+const graph = new Graph();
+graph.addVertex('A');
+graph.addVertex('B');
+graph.addEdge('A', 'B');
+console.log(graph.vertices); // { A: ['B'], B: ['A'] }
+      </pre>
+    </section>
+
+    <!-- 9. Heap -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-blue-500">9. Heap</h2>
+      <p class="text-lg text-gray-700 mb-2">
+        Heap là một cấu trúc dữ liệu dạng cây, được sử dụng chủ yếu trong các thuật toán sắp xếp và tìm kiếm tối ưu.
+      </p>
+      <p class="text-md text-gray-600">
+        <strong>Ứng dụng thực tế trong Node.js:</strong> Heap được sử dụng trong các hệ thống tìm kiếm tối ưu hoặc thuật toán ưu tiên như trong các hàng đợi ưu tiên.
+      </p>
+      <pre class="bg-gray-100 p-4 rounded-md mt-4 text-sm">
+class MaxHeap {
+  constructor() {
+    this.heap = [];
+  }
+
+  insert(value) {
+    this.heap.push(value);
+    this.heapifyUp();
+  }
+
+  heapifyUp() {
+    let index = this.heap.length - 1;
+    while (index > 0) {
+      let parentIndex = Math.floor((index - 1) / 2);
+      if (this.heap[parentIndex] >= this.heap[index]) break;
+      [this.heap[parentIndex], this.heap[index]] = [this.heap[index], this.heap[parentIndex]];
+      index = parentIndex;
+    }
+  }
+}
+
+const heap = new MaxHeap();
+heap.insert(10);
+heap.insert(20);
+console.log(heap.heap); // [20, 10]
+      </pre>
+    </section>
+
   </div>
 </body>
 </html>
