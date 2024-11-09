@@ -18,7 +18,7 @@
       </p>
     </section>
 
-    <!-- Mảng (Array) -->
+    <!-- 1. Mảng (Array) -->
     <section class="mb-8">
       <h2 class="text-2xl font-semibold text-blue-500">1. Mảng (Array)</h2>
       <p class="text-lg text-gray-700 mb-2">
@@ -33,9 +33,12 @@ console.log(users.map(user => user.name)); // ['Alice', 'Bob']
       </pre>
     </section>
 
-    <!-- Đối tượng (Object) -->
+    <!-- 2. Đối tượng (Object) -->
     <section class="mb-8">
       <h2 class="text-2xl font-semibold text-blue-500">2. Đối Tượng (Object)</h2>
+      <p class="text-lg text-gray-700 mb-2">
+        Đối tượng trong JavaScript và TypeScript được sử dụng để lưu trữ dữ liệu theo dạng các cặp khóa-giá trị. Nó là một trong những cấu trúc dữ liệu cơ bản và phổ biến nhất.
+      </p>
       <pre class="bg-gray-100 p-4 rounded-md mt-4 text-sm">
 interface User {
   id: number;
@@ -53,11 +56,11 @@ console.log(user.name); // "Alice"
       </pre>
     </section>
 
-    <!-- Hash Table -->
+    <!-- 3. Hash Table (Bảng Băm) -->
     <section class="mb-8">
       <h2 class="text-2xl font-semibold text-blue-500">3. Hash Table (Bảng Băm)</h2>
       <p class="text-lg text-gray-700 mb-2">
-        Bảng băm là một cấu trúc dữ liệu ánh xạ giữa khóa và giá trị. Hash table rất hiệu quả trong việc tra cứu nhanh.
+        Bảng băm là một cấu trúc dữ liệu ánh xạ giữa khóa và giá trị. Với bảng băm, bạn có thể truy cập, thêm, hoặc xóa các phần tử rất nhanh chóng.
       </p>
       <pre class="bg-gray-100 p-4 rounded-md mt-4 text-sm">
 class HashTable<K, V> {
@@ -82,9 +85,12 @@ console.log(hashTable.search('user1')); // "Alice"
       </pre>
     </section>
 
-    <!-- Ngăn xếp (Stack) -->
+    <!-- 4. Ngăn Xếp (Stack) -->
     <section class="mb-8">
       <h2 class="text-2xl font-semibold text-blue-500">4. Ngăn Xếp (Stack)</h2>
+      <p class="text-lg text-gray-700 mb-2">
+        Ngăn xếp (Stack) là cấu trúc dữ liệu kiểu LIFO (Last In, First Out), tức là phần tử cuối cùng được thêm vào sẽ là phần tử đầu tiên bị lấy ra.
+      </p>
       <pre class="bg-gray-100 p-4 rounded-md mt-4 text-sm">
 class Stack<T> {
   private items: T[] = [];
@@ -105,9 +111,12 @@ console.log(stack.pop()); // 20
       </pre>
     </section>
 
-    <!-- Hàng đợi (Queue) -->
+    <!-- 5. Hàng Đợi (Queue) -->
     <section class="mb-8">
       <h2 class="text-2xl font-semibold text-blue-500">5. Hàng Đợi (Queue)</h2>
+      <p class="text-lg text-gray-700 mb-2">
+        Hàng đợi (Queue) là cấu trúc dữ liệu kiểu FIFO (First In, First Out), phần tử đầu tiên được thêm vào sẽ là phần tử đầu tiên bị lấy ra.
+      </p>
       <pre class="bg-gray-100 p-4 rounded-md mt-4 text-sm">
 class Queue<T> {
   private items: T[] = [];
@@ -128,11 +137,11 @@ console.log(queue.dequeue()); // "task1"
       </pre>
     </section>
 
-    <!-- Set -->
+    <!-- 6. Set (Tập hợp) -->
     <section class="mb-8">
       <h2 class="text-2xl font-semibold text-blue-500">6. Set (Tập hợp)</h2>
       <p class="text-lg text-gray-700 mb-2">
-        Set là một cấu trúc dữ liệu chứa các phần tử duy nhất, không trùng lặp. Nó rất hữu ích khi bạn cần đảm bảo rằng không có giá trị nào xuất hiện nhiều lần trong bộ dữ liệu.
+        Set là một cấu trúc dữ liệu lưu trữ các phần tử duy nhất, không có phần tử trùng lặp. Nó có thể được sử dụng để lưu trữ các giá trị mà không cần quan tâm đến thứ tự.
       </p>
       <pre class="bg-gray-100 p-4 rounded-md mt-4 text-sm">
 const numbers = new Set<number>();
@@ -149,9 +158,12 @@ console.log(strings); // Set { 'Alice', 'Bob' }
       </pre>
     </section>
 
-    <!-- Danh sách liên kết (Linked List) -->
+    <!-- 7. Danh Sách Liên Kết (Linked List) -->
     <section class="mb-8">
       <h2 class="text-2xl font-semibold text-blue-500">7. Danh Sách Liên Kết (Linked List)</h2>
+      <p class="text-lg text-gray-700 mb-2">
+        Danh sách liên kết là một cấu trúc dữ liệu trong đó mỗi phần tử lưu trữ dữ liệu và một con trỏ hoặc tham chiếu đến phần tử tiếp theo.
+      </p>
       <pre class="bg-gray-100 p-4 rounded-md mt-4 text-sm">
 class Node<T> {
   data: T;
@@ -179,9 +191,12 @@ console.log(list.head); // { data: 2, next: { data: 1, next: null } }
       </pre>
     </section>
 
-    <!-- Cây (Tree) -->
+    <!-- 8. Cây (Tree) -->
     <section class="mb-8">
       <h2 class="text-2xl font-semibold text-blue-500">8. Cây (Tree)</h2>
+      <p class="text-lg text-gray-700 mb-2">
+        Cây là một cấu trúc dữ liệu có nút gốc và các nút con, thường được sử dụng để lưu trữ dữ liệu có cấu trúc phân cấp như thư mục hoặc hệ thống tệp.
+      </p>
       <pre class="bg-gray-100 p-4 rounded-md mt-4 text-sm">
 class TreeNode<T> {
   value: T;
@@ -230,109 +245,77 @@ console.log(tree.root); // Root node with value 10
       </pre>
     </section>
 
-    <!-- Đồ thị (Graph) -->
+    <!-- 9. Đồ Thị (Graph) -->
     <section class="mb-8">
       <h2 class="text-2xl font-semibold text-blue-500">9. Đồ Thị (Graph)</h2>
+      <p class="text-lg text-gray-700 mb-2">
+        Đồ thị là một cấu trúc dữ liệu gồm các đỉnh (nodes) và các cạnh (edges) nối các đỉnh lại với nhau. Đồ thị có thể có chu trình hoặc không.
+      </p>
       <pre class="bg-gray-100 p-4 rounded-md mt-4 text-sm">
-class Graph<T> {
-  private adjList: Map<T, T[]> = new Map();
+class Graph {
+  private adjList: Map<string, string[]> = new Map();
 
-  addVertex(vertex: T): void {
+  addVertex(vertex: string): void {
     if (!this.adjList.has(vertex)) {
       this.adjList.set(vertex, []);
     }
   }
 
-  addEdge(vertex1: T, vertex2: T): void {
+  addEdge(vertex1: string, vertex2: string): void {
     this.adjList.get(vertex1)?.push(vertex2);
     this.adjList.get(vertex2)?.push(vertex1);
   }
 
-  getAdjacencyList(): Map<T, T[]> {
+  getAdjList(): Map<string, string[]> {
     return this.adjList;
   }
 }
 
-const graph = new Graph<string>();
-graph.addVertex('A');
-graph.addVertex('B');
-graph.addEdge('A', 'B');
-console.log(graph.getAdjacencyList()); // Map { 'A' => [ 'B' ], 'B' => [ 'A' ] }
+const graph = new Graph();
+graph.addVertex("A");
+graph.addVertex("B");
+graph.addEdge("A", "B");
+console.log(graph.getAdjList()); // Map { 'A' => ['B'], 'B' => ['A'] }
       </pre>
     </section>
 
-    <!-- Heaps -->
+    <!-- 10. Heaps -->
     <section class="mb-8">
       <h2 class="text-2xl font-semibold text-blue-500">10. Heaps</h2>
+      <p class="text-lg text-gray-700 mb-2">
+        Heap là một cây nhị phân đặc biệt trong đó phần tử cha luôn có giá trị lớn hơn hoặc nhỏ hơn các phần tử con.
+      </p>
       <pre class="bg-gray-100 p-4 rounded-md mt-4 text-sm">
-class MaxHeap<T> {
-  private heap: T[] = [];
+class MaxHeap {
+  private heap: number[] = [];
 
-  insert(value: T): void {
+  insert(value: number): void {
     this.heap.push(value);
     this.bubbleUp();
   }
 
-  extractMax(): T | undefined {
-    const max = this.heap[0];
-    const end = this.heap.pop();
-    if (this.heap.length > 0 && end !== undefined) {
-      this.heap[0] = end;
-      this.bubbleDown();
-    }
-    return max;
-  }
-
   private bubbleUp(): void {
     let index = this.heap.length - 1;
-    const element = this.heap[index];
     while (index > 0) {
       const parentIndex = Math.floor((index - 1) / 2);
-      const parent = this.heap[parentIndex];
-      if (parent >= element) break;
-      this.heap[index] = parent;
+      if (this.heap[index] <= this.heap[parentIndex]) break;
+      [this.heap[index], this.heap[parentIndex]] = [this.heap[parentIndex], this.heap[index]];
       index = parentIndex;
     }
-    this.heap[index] = element;
   }
 
-  private bubbleDown(): void {
-    let index = 0;
-    const length = this.heap.length;
-    const element = this.heap[0];
-    while (true) {
-      let leftChildIndex = 2 * index + 1;
-      let rightChildIndex = 2 * index + 2;
-      let swap: number | null = null;
-
-      if (leftChildIndex < length) {
-        const leftChild = this.heap[leftChildIndex];
-        if (leftChild > element) {
-          swap = leftChildIndex;
-        }
-      }
-      if (rightChildIndex < length) {
-        const rightChild = this.heap[rightChildIndex];
-        if ((swap === null && rightChild > element) || (swap !== null && rightChild > this.heap[swap])) {
-          swap = rightChildIndex;
-        }
-      }
-      if (swap === null) break;
-      this.heap[index] = this.heap[swap];
-      this.heap[swap] = element;
-      index = swap;
-    }
+  getHeap(): number[] {
+    return this.heap;
   }
 }
 
-const maxHeap = new MaxHeap<number>();
-maxHeap.insert(10);
-maxHeap.insert(20);
-maxHeap.insert(5);
-console.log(maxHeap.extractMax()); // 20
+const heap = new MaxHeap();
+heap.insert(10);
+heap.insert(20);
+console.log(heap.getHeap()); // [20, 10]
       </pre>
     </section>
-
+    
   </div>
 </body>
 </html>
