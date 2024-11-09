@@ -14,21 +14,18 @@
     <section class="mb-8">
       <p class="text-lg text-gray-700">
         Trang này giải thích các cấu trúc dữ liệu phổ biến và cách chúng có thể được áp dụng trong các dự án thực tế
-        sử dụng <strong>Node.js</strong>, <strong>Express</strong>, và <strong>TypeScript</strong>.
+        sử dụng <strong>Node.js</strong>, <strong>Express</strong>, và <strong>TypeScript</strong> với Generics.
       </p>
     </section>
 
-    <!-- 1. Mảng (Array) -->
+    <!-- Mảng (Array) -->
     <section class="mb-8">
       <h2 class="text-2xl font-semibold text-blue-500">1. Mảng (Array)</h2>
       <p class="text-lg text-gray-700 mb-2">
         Mảng là một cấu trúc dữ liệu lưu trữ một danh sách các phần tử theo thứ tự nhất định. Mảng thường được sử dụng khi bạn cần lưu trữ nhiều mục giống nhau.
       </p>
-      <p class="text-md text-gray-600">
-        <strong>Ứng dụng thực tế trong Node.js:</strong> Mảng có thể được sử dụng để lưu trữ danh sách người dùng, sản phẩm, đơn hàng, v.v.
-      </p>
       <pre class="bg-gray-100 p-4 rounded-md mt-4 text-sm">
-const users = [
+const users: Array<{ id: number; name: string }> = [
   { id: 1, name: 'Alice' },
   { id: 2, name: 'Bob' }
 ];
@@ -36,262 +33,303 @@ console.log(users.map(user => user.name)); // ['Alice', 'Bob']
       </pre>
     </section>
 
-    <!-- 2. Đối tượng (Object) -->
+    <!-- Đối tượng (Object) -->
     <section class="mb-8">
       <h2 class="text-2xl font-semibold text-blue-500">2. Đối Tượng (Object)</h2>
-      <p class="text-lg text-gray-700 mb-2">
-        Đối tượng là một cấu trúc dữ liệu lưu trữ các cặp khóa-giá trị. Mỗi giá trị có thể được truy cập qua khóa tương ứng.
-      </p>
-      <p class="text-md text-gray-600">
-        <strong>Ứng dụng thực tế trong Node.js:</strong> Đối tượng thường được dùng để lưu trữ thông tin người dùng hoặc cấu hình ứng dụng.
-      </p>
       <pre class="bg-gray-100 p-4 rounded-md mt-4 text-sm">
-const user = {
+interface User {
+  id: number;
+  name: string;
+  age: number;
+}
+
+const user: User = {
   id: 1,
   name: 'Alice',
   age: 28
 };
+
 console.log(user.name); // "Alice"
       </pre>
     </section>
 
-    <!-- 3. Hash Table -->
+    <!-- Hash Table -->
     <section class="mb-8">
       <h2 class="text-2xl font-semibold text-blue-500">3. Hash Table (Bảng Băm)</h2>
       <p class="text-lg text-gray-700 mb-2">
         Bảng băm là một cấu trúc dữ liệu ánh xạ giữa khóa và giá trị. Hash table rất hiệu quả trong việc tra cứu nhanh.
       </p>
-      <p class="text-md text-gray-600">
-        <strong>Ứng dụng thực tế trong Node.js:</strong> Hash Table có thể được sử dụng để lưu trữ thông tin phiên người dùng hoặc dữ liệu cần truy xuất nhanh chóng.
-      </p>
       <pre class="bg-gray-100 p-4 rounded-md mt-4 text-sm">
-class HashTable {
-  constructor(size) {
-    this.table = new Array(size);
+class HashTable<K, V> {
+  private table: Map<K, V>;
+
+  constructor() {
+    this.table = new Map<K, V>();
   }
-  
-  hash(key) {
-    let hash = 0;
-    for (let i = 0; i < key.length; i++) {
-      hash += key.charCodeAt(i);
-    }
-    return hash % this.table.length;
+
+  insert(key: K, value: V): void {
+    this.table.set(key, value);
   }
-  
-  insert(key, value) {
-    const index = this.hash(key);
-    this.table[index] = value;
-  }
-  
-  search(key) {
-    const index = this.hash(key);
-    return this.table[index];
+
+  search(key: K): V | undefined {
+    return this.table.get(key);
   }
 }
 
-const hashTable = new HashTable(5);
+const hashTable = new HashTable<string, string>();
 hashTable.insert('user1', 'Alice');
 console.log(hashTable.search('user1')); // "Alice"
       </pre>
     </section>
 
-    <!-- 4. Ngăn xếp (Stack) -->
+    <!-- Ngăn xếp (Stack) -->
     <section class="mb-8">
       <h2 class="text-2xl font-semibold text-blue-500">4. Ngăn Xếp (Stack)</h2>
-      <p class="text-lg text-gray-700 mb-2">
-        Ngăn xếp là một cấu trúc dữ liệu theo kiểu LIFO (Last In, First Out), nơi phần tử cuối cùng được thêm vào sẽ là phần tử đầu tiên được lấy ra.
-      </p>
-      <p class="text-md text-gray-600">
-        <strong>Ứng dụng thực tế trong Node.js:</strong> Stack có thể được sử dụng để xử lý các tác vụ đệ quy hoặc các thao tác hoàn tác/redo trong ứng dụng.
-      </p>
       <pre class="bg-gray-100 p-4 rounded-md mt-4 text-sm">
-class Stack {
-  constructor() {
-    this.items = [];
-  }
+class Stack<T> {
+  private items: T[] = [];
 
-  push(element) {
+  push(element: T): void {
     this.items.push(element);
   }
 
-  pop() {
+  pop(): T | undefined {
     return this.items.pop();
   }
 }
 
-const stack = new Stack();
-stack.push('task1');
-stack.push('task2');
-console.log(stack.pop()); // "task2"
+const stack = new Stack<number>();
+stack.push(10);
+stack.push(20);
+console.log(stack.pop()); // 20
       </pre>
     </section>
 
-    <!-- 5. Hàng đợi (Queue) -->
+    <!-- Hàng đợi (Queue) -->
     <section class="mb-8">
       <h2 class="text-2xl font-semibold text-blue-500">5. Hàng Đợi (Queue)</h2>
-      <p class="text-lg text-gray-700 mb-2">
-        Hàng đợi là một cấu trúc dữ liệu theo kiểu FIFO (First In, First Out), nơi phần tử đầu tiên được thêm vào sẽ là phần tử đầu tiên được lấy ra.
-      </p>
-      <p class="text-md text-gray-600">
-        <strong>Ứng dụng thực tế trong Node.js:</strong> Queue thường được sử dụng trong các hệ thống xử lý yêu cầu (request handling) hoặc các tác vụ cần được xử lý theo thứ tự.
-      </p>
       <pre class="bg-gray-100 p-4 rounded-md mt-4 text-sm">
-class Queue {
-  constructor() {
-    this.items = [];
-  }
+class Queue<T> {
+  private items: T[] = [];
 
-  enqueue(element) {
+  enqueue(element: T): void {
     this.items.push(element);
   }
 
-  dequeue() {
+  dequeue(): T | undefined {
     return this.items.shift();
   }
 }
 
-const queue = new Queue();
+const queue = new Queue<string>();
 queue.enqueue('task1');
 queue.enqueue('task2');
 console.log(queue.dequeue()); // "task1"
       </pre>
     </section>
 
-    <!-- 6. Danh sách liên kết (Linked List) -->
+    <!-- Set -->
     <section class="mb-8">
-      <h2 class="text-2xl font-semibold text-blue-500">6. Danh Sách Liên Kết (Linked List)</h2>
+      <h2 class="text-2xl font-semibold text-blue-500">6. Set (Tập hợp)</h2>
       <p class="text-lg text-gray-700 mb-2">
-        Danh sách liên kết là một cấu trúc dữ liệu trong đó mỗi phần tử chứa dữ liệu và một con trỏ đến phần tử tiếp theo.
-      </p>
-      <p class="text-md text-gray-600">
-        <strong>Ứng dụng thực tế trong Node.js:</strong> Linked List có thể dùng để lưu trữ các dữ liệu thay đổi động, chẳng hạn như trong các ứng dụng xử lý dữ liệu theo chuỗi.
+        Set là một cấu trúc dữ liệu chứa các phần tử duy nhất, không trùng lặp. Nó rất hữu ích khi bạn cần đảm bảo rằng không có giá trị nào xuất hiện nhiều lần trong bộ dữ liệu.
       </p>
       <pre class="bg-gray-100 p-4 rounded-md mt-4 text-sm">
-class Node {
-  constructor(data) {
+const numbers = new Set<number>();
+numbers.add(1);
+numbers.add(2);
+numbers.add(2); // Phần tử trùng sẽ không được thêm vào
+console.log(numbers); // Set { 1, 2 }
+
+const strings = new Set<string>();
+strings.add("Alice");
+strings.add("Bob");
+strings.add("Alice"); // Phần tử "Alice" đã có, không thêm lại
+console.log(strings); // Set { 'Alice', 'Bob' }
+      </pre>
+    </section>
+
+    <!-- Danh sách liên kết (Linked List) -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-blue-500">7. Danh Sách Liên Kết (Linked List)</h2>
+      <pre class="bg-gray-100 p-4 rounded-md mt-4 text-sm">
+class Node<T> {
+  data: T;
+  next: Node<T> | null = null;
+
+  constructor(data: T) {
     this.data = data;
-    this.next = null;
   }
 }
 
-class LinkedList {
-  constructor() {
-    this.head = null;
-  }
+class LinkedList<T> {
+  head: Node<T> | null = null;
 
-  insert(data) {
+  insert(data: T): void {
     const newNode = new Node(data);
     newNode.next = this.head;
     this.head = newNode;
   }
 }
 
-const list = new LinkedList();
-list.insert('Node 1');
-list.insert('Node 2');
-console.log(list.head); // { data: 'Node 2', next: { data: 'Node 1', next: null } }
+const list = new LinkedList<number>();
+list.insert(1);
+list.insert(2);
+console.log(list.head); // { data: 2, next: { data: 1, next: null } }
       </pre>
     </section>
 
-    <!-- 7. Cây (Tree) -->
+    <!-- Cây (Tree) -->
     <section class="mb-8">
-      <h2 class="text-2xl font-semibold text-blue-500">7. Cây (Tree)</h2>
-      <p class="text-lg text-gray-700 mb-2">
-        Cây là một cấu trúc dữ liệu có dạng cây phân cấp, nơi mỗi nút có thể có nhiều nút con, rất hữu ích trong các ứng dụng tìm kiếm và phân loại.
-      </p>
-      <p class="text-md text-gray-600">
-        <strong>Ứng dụng thực tế trong Node.js:</strong> Cây thường được sử dụng trong các hệ thống phân cấp như thư mục tệp tin, dữ liệu JSON, hoặc các hệ thống tìm kiếm.
-      </p>
+      <h2 class="text-2xl font-semibold text-blue-500">8. Cây (Tree)</h2>
       <pre class="bg-gray-100 p-4 rounded-md mt-4 text-sm">
-class TreeNode {
-  constructor(data) {
-    this.data = data;
-    this.children = [];
-  }
+class TreeNode<T> {
+  value: T;
+  left: TreeNode<T> | null = null;
+  right: TreeNode<T> | null = null;
 
-  addChild(node) {
-    this.children.push(node);
+  constructor(value: T) {
+    this.value = value;
   }
 }
 
-const root = new TreeNode('root');
-const child1 = new TreeNode('child1');
-const child2 = new TreeNode('child2');
+class BinaryTree<T> {
+  root: TreeNode<T> | null = null;
 
-root.addChild(child1);
-root.addChild(child2);
-console.log(root); // Tree with root and two children
-      </pre>
-    </section>
-
-    <!-- 8. Đồ thị (Graph) -->
-    <section class="mb-8">
-      <h2 class="text-2xl font-semibold text-blue-500">8. Đồ Thị (Graph)</h2>
-      <p class="text-lg text-gray-700 mb-2">
-        Đồ thị là một cấu trúc dữ liệu gồm các đỉnh (vertices) và các cạnh (edges) kết nối chúng. Đồ thị có thể được dùng trong các ứng dụng tìm kiếm và phân tích mạng.
-      </p>
-      <p class="text-md text-gray-600">
-        <strong>Ứng dụng thực tế trong Node.js:</strong> Đồ thị có thể dùng trong các ứng dụng mô phỏng mạng xã hội, bản đồ, hoặc hệ thống tìm kiếm.
-      </p>
-      <pre class="bg-gray-100 p-4 rounded-md mt-4 text-sm">
-class Graph {
-  constructor() {
-    this.vertices = new Map();
+  insert(value: T): void {
+    const newNode = new TreeNode(value);
+    if (!this.root) {
+      this.root = newNode;
+    } else {
+      this.insertNode(this.root, newNode);
+    }
   }
 
-  addVertex(vertex) {
-    this.vertices.set(vertex, []);
-  }
-
-  addEdge(vertex1, vertex2) {
-    this.vertices.get(vertex1).push(vertex2);
-    this.vertices.get(vertex2).push(vertex1);
-  }
-}
-
-const graph = new Graph();
-graph.addVertex('A');
-graph.addVertex('B');
-graph.addEdge('A', 'B');
-console.log(graph.vertices); // { A: ['B'], B: ['A'] }
-      </pre>
-    </section>
-
-    <!-- 9. Heap -->
-    <section class="mb-8">
-      <h2 class="text-2xl font-semibold text-blue-500">9. Heap</h2>
-      <p class="text-lg text-gray-700 mb-2">
-        Heap là một cấu trúc dữ liệu dạng cây, được sử dụng chủ yếu trong các thuật toán sắp xếp và tìm kiếm tối ưu.
-      </p>
-      <p class="text-md text-gray-600">
-        <strong>Ứng dụng thực tế trong Node.js:</strong> Heap được sử dụng trong các hệ thống tìm kiếm tối ưu hoặc thuật toán ưu tiên như trong các hàng đợi ưu tiên.
-      </p>
-      <pre class="bg-gray-100 p-4 rounded-md mt-4 text-sm">
-class MaxHeap {
-  constructor() {
-    this.heap = [];
-  }
-
-  insert(value) {
-    this.heap.push(value);
-    this.heapifyUp();
-  }
-
-  heapifyUp() {
-    let index = this.heap.length - 1;
-    while (index > 0) {
-      let parentIndex = Math.floor((index - 1) / 2);
-      if (this.heap[parentIndex] >= this.heap[index]) break;
-      [this.heap[parentIndex], this.heap[index]] = [this.heap[index], this.heap[parentIndex]];
-      index = parentIndex;
+  insertNode(node: TreeNode<T>, newNode: TreeNode<T>): void {
+    if (newNode.value < node.value) {
+      if (node.left === null) {
+        node.left = newNode;
+      } else {
+        this.insertNode(node.left, newNode);
+      }
+    } else {
+      if (node.right === null) {
+        node.right = newNode;
+      } else {
+        this.insertNode(node.right, newNode);
+      }
     }
   }
 }
 
-const heap = new MaxHeap();
-heap.insert(10);
-heap.insert(20);
-console.log(heap.heap); // [20, 10]
+const tree = new BinaryTree<number>();
+tree.insert(10);
+tree.insert(5);
+tree.insert(15);
+console.log(tree.root); // Root node with value 10
+      </pre>
+    </section>
+
+    <!-- Đồ thị (Graph) -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-blue-500">9. Đồ Thị (Graph)</h2>
+      <pre class="bg-gray-100 p-4 rounded-md mt-4 text-sm">
+class Graph<T> {
+  private adjList: Map<T, T[]> = new Map();
+
+  addVertex(vertex: T): void {
+    if (!this.adjList.has(vertex)) {
+      this.adjList.set(vertex, []);
+    }
+  }
+
+  addEdge(vertex1: T, vertex2: T): void {
+    this.adjList.get(vertex1)?.push(vertex2);
+    this.adjList.get(vertex2)?.push(vertex1);
+  }
+
+  getAdjacencyList(): Map<T, T[]> {
+    return this.adjList;
+  }
+}
+
+const graph = new Graph<string>();
+graph.addVertex('A');
+graph.addVertex('B');
+graph.addEdge('A', 'B');
+console.log(graph.getAdjacencyList()); // Map { 'A' => [ 'B' ], 'B' => [ 'A' ] }
+      </pre>
+    </section>
+
+    <!-- Heaps -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-blue-500">10. Heaps</h2>
+      <pre class="bg-gray-100 p-4 rounded-md mt-4 text-sm">
+class MaxHeap<T> {
+  private heap: T[] = [];
+
+  insert(value: T): void {
+    this.heap.push(value);
+    this.bubbleUp();
+  }
+
+  extractMax(): T | undefined {
+    const max = this.heap[0];
+    const end = this.heap.pop();
+    if (this.heap.length > 0 && end !== undefined) {
+      this.heap[0] = end;
+      this.bubbleDown();
+    }
+    return max;
+  }
+
+  private bubbleUp(): void {
+    let index = this.heap.length - 1;
+    const element = this.heap[index];
+    while (index > 0) {
+      const parentIndex = Math.floor((index - 1) / 2);
+      const parent = this.heap[parentIndex];
+      if (parent >= element) break;
+      this.heap[index] = parent;
+      index = parentIndex;
+    }
+    this.heap[index] = element;
+  }
+
+  private bubbleDown(): void {
+    let index = 0;
+    const length = this.heap.length;
+    const element = this.heap[0];
+    while (true) {
+      let leftChildIndex = 2 * index + 1;
+      let rightChildIndex = 2 * index + 2;
+      let swap: number | null = null;
+
+      if (leftChildIndex < length) {
+        const leftChild = this.heap[leftChildIndex];
+        if (leftChild > element) {
+          swap = leftChildIndex;
+        }
+      }
+      if (rightChildIndex < length) {
+        const rightChild = this.heap[rightChildIndex];
+        if ((swap === null && rightChild > element) || (swap !== null && rightChild > this.heap[swap])) {
+          swap = rightChildIndex;
+        }
+      }
+      if (swap === null) break;
+      this.heap[index] = this.heap[swap];
+      this.heap[swap] = element;
+      index = swap;
+    }
+  }
+}
+
+const maxHeap = new MaxHeap<number>();
+maxHeap.insert(10);
+maxHeap.insert(20);
+maxHeap.insert(5);
+console.log(maxHeap.extractMax()); // 20
       </pre>
     </section>
 
